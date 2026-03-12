@@ -1,0 +1,172 @@
+My Seventh SQL Project
+Project Overview
+My Seventh SQL Project focuses on analyzing and cleaning customer transaction data from an online store.
+The goal of this project was to practice data analysis, data cleaning, transaction management, and date analysis while improving database quality and consistency.
+During the project, I inspected the dataset structure, corrected data types, handled missing values, standardized text formatting, and analyzed transaction dates. I also practiced working with bit values, transactions, and date functions to better understand how real databases manage and analyze customer data.
+This project demonstrates my growing skills in SQL data preparation and database management.
+
+Dataset
+The project works with a dataset containing online store customer data.
+The table includes information such as:
+
+Customer ID
+Gender
+State names
+Marital status
+Customer segment
+Transaction dates
+Amount spent
+Referral indicator
+
+This dataset simulates the kind of customer information used in e-commerce analytics systems.
+Project Steps and Analysis
+
+1. Database Creation
+
+The project begins by creating a new SQL database dedicated to this analysis project.
+Creating a separate database helps:
+Keep projects organized
+Prevent interference with other datasets
+Practice database management skills
+
+2. Schema Inspection
+The first analysis step was checking the structure of the table.
+I examined:
+
+Column names
+Data types assigned to each column
+This step is important because incorrect data types can cause:
+calculation errors
+storage inefficiency
+incorrect query results
+By reviewing the schema first, I ensured the dataset was ready for proper analysis.
+
+3. Initial Data Exploration
+After reviewing the structure, I examined the full dataset to understand:
+what kind of data each column contains
+whether any values looked incorrect
+if there were missing or inconsistent values
+Exploring the data is a critical step in real-world data analysis, because it reveals problems that must be fixed before meaningful analysis can begin.
+
+4. Data Type Correction
+
+One issue discovered in the dataset was that the Amount Spent column contained unnecessary decimal values.
+Since customer purchase amounts were intended to be whole numbers, I modified the column’s data type so the database stores the values as integers instead of decimals.
+Benefits of this fix:
+cleaner numeric data
+improved storage efficiency
+faster calculations
+
+5. Handling Missing Values
+The dataset contained NULL values in several columns.
+NULL values can cause problems in calculations and analysis, so I replaced them with default values.
+Fixes applied:
+
+Amount spent column
+NULL values were replaced with 0
+This represents customers who have not spent money
+Gender column
+Empty values were replaced with 0
+This provides a placeholder for missing gender information
+Handling missing values is an important part of data cleaning and preparation.
+
+6. Text Standardization
+
+To make the dataset more consistent, I converted certain text fields to lowercase format.
+This prevents issues where the same value appears in different formats, such as:
+Example problem:
+
+New York
+NEW YORK
+new york
+
+Standardizing text improves:
+
+filtering accuracy
+grouping results
+reporting consistency
+
+7. Transaction Management
+This project also demonstrates how SQL transactions work.
+Transactions allow changes to be controlled safely in a database.
+Two transaction actions were practiced:
+COMMIT
+This permanently saves changes made to the database.
+ROLLBACK
+This cancels changes and restores the database to its previous state.
+Learning transactions is important for data safety and error recovery in real production systems.
+
+8. Date Analysis
+
+The dataset contains customer transaction dates.
+I used date functions to analyze order timing.
+Finding the Last Day of the Month
+I calculated the final day of the month for each transaction date.
+This is useful in:
+
+monthly sales reporting
+financial summaries
+billing cycles
+Measuring Order Age
+Another analysis calculated how many days ago each order was placed.
+This type of calculation helps businesses understand:
+customer activity
+inactive customers
+order recency
+
+9. Working with the BIT Data Type
+In this project I practiced working with the bit data type.
+
+A bit column stores binary values:
+
+1 = Yes / True
+0 = No / False
+This type of column is commonly used for flags such as:
+referral indicators
+membership status
+feature toggles
+
+10. Updating Referral Values
+
+I practiced updating the referral column in multiple ways:
+Setting all customers as referred
+This demonstrates how to update an entire column.
+Updating a specific customer
+I modified the referral value for a single customer based on their ID.
+Resetting referral values
+I also practiced resetting the referral column back to zero.
+These exercises helped reinforce how UPDATE operations work.
+
+11. Conditional Updates Based on Date
+  
+Finally, I applied a condition to update referral values.
+Customers whose transaction dates were before 2019 were marked with a referral value of 0.
+This type of logic is often used in real systems to:
+deactivate old customers
+reset expired memberships
+clean outdated records
+Skills Demonstrated
+This project demonstrates experience with:
+Database creation
+Data exploration
+Schema inspection
+Data type correction
+Handling NULL values
+Text formatting and standardization
+Date analysis
+Transaction management
+Conditional updates
+Working with the bit data type
+
+What I Learned
+
+Through this project I improved my ability to:
+clean messy datasets
+correct database structure problems
+analyze customer transactions
+safely manage database changes using transactions
+These skills are essential for data analysis, database administration, and backend development.
+
+Project Status
+
+Completed – My Seventh SQL Project
