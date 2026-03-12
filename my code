@@ -1,0 +1,53 @@
+create database MySeventhSQLProject;
+
+USE MySeventhSQLProject;
+
+/*checked each datatype for each column for mistakes 
+in choosing a datatype for a specific column*/
+SELECT COLUMN_NAME, DATA_TYPE
+FROM INFORMATION_SCHEMA.COLUMNS
+WHERE TABLE_NAME = 'online_store_customer_data'
+
+--Checked the data for analysis
+SELECT * FROM online_store_customer_data
+
+/*fixed the datatype sence there were alot of unnecessory 
+numbers behind the amount that was spent by each customer*/
+ALTER TABLE online_store_customer_data
+ALTER COLUMN Amount_spent INT
+
+--Added 0's To Null Values Instead Of Just Being Null
+SELECT ISNULL(Amount_spent, '0') As Added0ToNullValues From online_store_customer_data
+
+--Added More 0's To The Gender Column Sence There Were More Empty Values
+SELECT ISNULL(Gender, '0') As Added0ToEmptyGenderValues From online_store_customer_data
+
+--makes everything lowercase
+SELECT LOWER(Segment)
+State_names,Marital_Status
+From online_store_customer_data
+
+--Saves Changes You Made
+BEGIN TRANSACTION COMMIT;
+
+Select EOMONTH(Transaction_date) As FindsTheVeryLastDayOfAMonthForAnOrder From  online_store_customer_data
+
+SELECT DATEDIFF(day,Transaction_Date, GETDATE()) As FindsHowLongAgoAnOrderWasPlacedInDays From online_store_customer_data
+
+ --i learned how to work with the bit datatype
+
+ --updates a bit value to 1 (one means yes)
+ UPDATE online_store_customer_data SET Referal = 1; 
+
+ --updates a bit value but on a specific ID 
+ UPDATE online_store_customer_data SET Referal = 1;
+ WHERE ID = 10;
+
+ --updates a bit value to 0 (0 means no) 
+ Update online_store_customer_data SET Referal = 0; 
+ 
+ BEGIN TRANSACTION ROLLBACK;
+
+ --checks how long ago a customer placed an order if its old it sets the bit to 0 
+ UPDATE online_store_customer_data SET Referal = 0
+ WHERE Transaction_date < '2019-01-01';
